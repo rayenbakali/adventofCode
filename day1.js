@@ -1,12 +1,7 @@
-const { error } = require("console");
 const fs = require("fs");
-const { json } = require("stream/consumers");
+const data = fs.readFileSync("./ressources/day1.txt", "utf8");
 
-const data = fs.readFileSync("./ressources/input.txt", "utf8");
-
-const data2 = fs.readFileSync("./ressources/inputtrial.txt", "utf8");
-
-let newData = data.split("\n");
+let newData = data.split("\r\n");
 console.log(newData);
 let Calories = [];
 let sum = 0;
@@ -24,35 +19,31 @@ console.log(Calories);
 
 let Max = 0;
 let IndexOfMax = 0;
-
-let Max2 = 0;
-let IndexOfMax2 = 0;
-
-let Max3 = 0;
-//First Max
 for (i in Calories) {
-  if (Calories[i] > Max) {
+  if (Max < Calories[i]) {
     Max = Calories[i];
     IndexOfMax = i;
   }
 }
+
 Calories.splice(IndexOfMax, 1);
-//Second Max
+
+let Max2 = 0;
+let IndexOfMax2 = 0;
 for (i in Calories) {
-  if (Calories[i] > Max2) {
+  if (Max2 < Calories[i]) {
     Max2 = Calories[i];
     IndexOfMax2 = i;
   }
 }
+
 Calories.splice(IndexOfMax2, 1);
 
-//Third Max
+let Max3 = 0;
 for (i in Calories) {
-  if (Calories[i] > Max3) {
+  if (Max3 < Calories[i]) {
     Max3 = Calories[i];
   }
 }
-
 console.log(Max, Max2, Max3);
-
-console.log(Max + Max3 + Max2);
+console.log(Max + Max2 + Max3);
