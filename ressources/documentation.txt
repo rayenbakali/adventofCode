@@ -1,0 +1,9 @@
+static : Default position , no special qualities.
+
+Relative : shift it around the page relative to it's own original position
+
+Fixed: give position fixed relative to the viewport ( what we see in the browser) for example navbar left : 0px , top 0px
+
+Absolute : absolute relative to it's closest parent 
+
+Sticky : mix of  fixed w static
